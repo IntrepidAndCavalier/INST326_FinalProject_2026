@@ -4,7 +4,7 @@
 
 ##https://docs.google.com/document/d/1YpV-ogQQxIFtVheAZmlEN7b4XcfP5fMGdnFcMEgYbpI/edit?tab=t.0
 ## ^^ the document with the stuuf
-
+"""hi"""
 """
 
 > A job has employees (employee objects) that have employee name, hourly wage, min hours, max hours, overtime eligibility, is_available (boolean, for the staffing algorithm)
