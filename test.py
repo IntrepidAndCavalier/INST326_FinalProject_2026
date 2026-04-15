@@ -4,10 +4,9 @@
 
 ##https://docs.google.com/document/d/1YpV-ogQQxIFtVheAZmlEN7b4XcfP5fMGdnFcMEgYbpI/edit?tab=t.0
 ## ^^ the document with the stuuf
-"""hi
-test
+
 """
-"""
+TO DO LIST:
 
 > A job has employees (employee objects) that have employee name, hourly wage, min hours, max hours, overtime eligibility, is_available (boolean, for the staffing algorithm)
     >can add/override each thing, dont need to instantiate with this?
@@ -22,9 +21,7 @@ test
     
     > return Day 1: Abby/Morning, Dave/Morning, Carol/Afternoon, Sarah/Night || Day 2: Carol/Morning, 
     
-"""
 
-'''TO DO LIST:
 
 Data -> i/o csv => the thing that reads. (Exercise 2 - Finder as a base?)
 
@@ -43,7 +40,7 @@ Overtime function (returns hours of overtime worked)
 Employee Pay function (counting overtime)
 
 Testing/Fixing
-'''
+"""
 
 class Employee:
     """The employee class"""
@@ -54,8 +51,10 @@ class Employee:
         self.compensation = self.hourly_rate * self.hours_scheduled
         return self.compensation
 
-    def EmployeeOvertime(self, hourly_rate, hours_worked):
+    def EmployeeOvertime(self, hours_worked):
+        #takes hours worked (passed in), uses self.hourly_rate to calculate pay
         pass
+    
 
 
 class WorkWeek:
@@ -74,8 +73,8 @@ class WorkWeek:
 
 
 class Scheduler: ##algorithm
-        """the main thing here
-        Approach: a greedy algorithm to pick “the best employee for this time slot”
+    """the main thing here
+    Approach: a greedy algorithm to pick “the best employee for this time slot”
         
     Rules: 
     • Match employees to shift based on their availability (first priority)
@@ -86,6 +85,8 @@ class Scheduler: ##algorithm
     """
     def __init__(self):
         pass
-
+    
+    def algorith(self):
+        pass
 
 
