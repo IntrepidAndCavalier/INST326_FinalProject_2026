@@ -72,7 +72,7 @@ class WorkWeek:
         pass
 
     def EmployeeOvertime(self, hourly_rate, hours_worked):
-        pass
+        sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
 
 
 class Scheduler: ##algorithm
