@@ -3,7 +3,7 @@
 ##welcome to employee scheduler
 
 ##https://docs.google.com/document/d/1YpV-ogQQxIFtVheAZmlEN7b4XcfP5fMGdnFcMEgYbpI/edit?tab=t.0
-## ^^ the document with the stuuf
+## ^^ the document with the stuff
 import pandas as pd
 
 """
@@ -50,9 +50,9 @@ class Employee:
 
     def PayEmployee(self, name, hourly_rate, min_hours, max_hours, overtime_eligibility):
         self.compensation = self.hourly_rate * self.hours_scheduled
+        #employee object's compensation = hourly * hours scheduled
         return self.compensation
-        employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "minimum hours", "max hours", "overtime eligibility"])
-        
+               
 
     def EmployeeOvertime(self, hours_worked):
         #takes hours worked (passed in), uses self.hourly_rate to calculate pay
@@ -72,7 +72,7 @@ class WorkWeek:
         pass
 
     def EmployeeOvertime(self, hourly_rate, hours_worked):
-        sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
+        #sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
 
 
 class Scheduler: ##algorithm
@@ -89,7 +89,14 @@ class Scheduler: ##algorithm
     def __init__(self):
         pass
     
-    def algorith(self):
+    def algorithm(self):
         pass
 
+if __name__ == "__main__":
+    employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "minimum hours", "max hours", "overtime eligibility"])
+    #^^ use above function to create employees that we can put into the scheduler
+    
+    sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
+    #^^ use above function to create workweek that we can put into the scheduler
 
+    
