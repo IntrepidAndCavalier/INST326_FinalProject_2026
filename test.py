@@ -4,6 +4,7 @@
 
 ##https://docs.google.com/document/d/1YpV-ogQQxIFtVheAZmlEN7b4XcfP5fMGdnFcMEgYbpI/edit?tab=t.0
 ## ^^ the document with the stuuf
+import pandas as pd
 
 """
 TO DO LIST:
