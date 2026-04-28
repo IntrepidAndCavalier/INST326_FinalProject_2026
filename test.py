@@ -51,6 +51,8 @@ class Employee:
     def PayEmployee(self, name, hourly_rate, min_hours, max_hours, overtime_eligibility):
         self.compensation = self.hourly_rate * self.hours_scheduled
         return self.compensation
+        employees = pd.read_csv("workweek.csv", names = ["name", "hourly rate", "minimum hours", "max hours", "overtime eligibility"])
+        
 
     def EmployeeOvertime(self, hours_worked):
         #takes hours worked (passed in), uses self.hourly_rate to calculate pay
