@@ -9,7 +9,7 @@ import pandas as pd
 """
 TO DO LIST:
 
-> A job has employees (employee objects) that have employee name, hourly wage, min hours, max hours, overtime eligibility, is_available (boolean, for the staffing algorithm)
+> A job has employees (employee objects) that have employee name (string), hourly wage, min hours, max hours, overtime eligibility (boolean), is_available (boolean, for the staffing algorithm)
     >can add/override each thing, dont need to instantiate with this?
     
 > create "workweek" object (Days, morning/afternoon/night (what shifts), people needed each day) ASSUMES that each day has same hours/needed employees
