@@ -85,7 +85,17 @@ class WorkWeek:
         Days, morning/afternoon/night (what shifts), people needed each day
     """
     def __init__(self,days,shifts,workers): #WorkWeek(5,(morning,night),5) -> 5 days to fill for morning shift and night shift, 5 people each day
-        
+        self.workweek = []
+        self.days = days #int, days of the week with shifts to schedule
+        self.shifts = shifts #tuple, shifts (morning, afternoon, night).
+        self.workers = workers #int, number of workers per shift
+       
+        #if do WorkWeek(4,(morning,night),5) then  object should look like
+        # [(5,5),(5,5),(5,5),(5,5)] 
+        for i in range(0,days):
+            for i in range(0,len(shifts))
+            workweek.append(int(workers)) #worried about mutability here.
+            
         #shift will be a tuple with the hours shifts = (morning,afternoon,night) or like shifts = (morning, night)        
         #each slot = day of the week to work.
         pass
