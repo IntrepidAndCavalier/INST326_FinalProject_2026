@@ -45,10 +45,17 @@ Testing/Fixing
 
 class Employee:
     """The employee class"""
-    def __init__(self):
+    def __init__(self,name, hourly_rate, shifts, overtime_eligibility):
+        self.name = name
+        self.hourly_rate = hourly_rate
+        self.min_hours = min_hours
+        self.max_hours = max_hours
+        self.overtime_eligibility = overtime_eligibility
+             
         pass
 
-    def PayEmployee(self, name, hourly_rate, min_hours, max_hours, overtime_eligibility):
+    def PayEmployee(self, name, hourly_rate, shifts, overtime_eligibility):
+        #assuming each "shift" is 8 hours.
         self.compensation = self.hourly_rate * self.hours_scheduled
         #employee object's compensation = hourly * hours scheduled
         return self.compensation
@@ -57,13 +64,25 @@ class Employee:
     def EmployeeOvertime(self, hours_worked):
         #takes hours worked (passed in), uses self.hourly_rate to calculate pay
         pass
-    
-
+        
+    def assign(self)
+        """Assign an employee to a workweek slot.
+        removes an employee's available shifts.
+        Checks if there's available shifts, then removes one. Returns true,
+        If no available shifts, returns false.
+        """
+        if self.shifts > 0:
+            self.shifts -= -1 //remove one of their shifts
+            return true
+        else:
+            return false
+    def copy(self):
+        return Worker(self.name, self.hourly_rate, self.shifts, self.overtime_eligibility)
+        
 
 class WorkWeek:
     """An object that is used to organize employee schedules
-        Days, morning/afternoon/night (what shifts), people needed each day)
-    
+        Days, morning/afternoon/night (what shifts), people needed each day
     """
     def __init__(self,days,shifts,workers): #WorkWeek(5,(morning,night),5) -> 5 days to fill for morning shift and night shift, 5 people each day
         
@@ -92,8 +111,20 @@ class Scheduler: ##algorithm
     def algorithm(self):
         pass
 
+def Schedule(team,workweek):
+    """the schedule algorithm to assign workers to a workweek
+    Arguments:
+    team: list of employee objects
+    workweek: slots and times for what the workweek looks like
+    """
+    if workweek == []
+        return {}
+    for worker in team:
+        if worker.shifts > 0
+            for 
+
 if __name__ == "__main__":
-    employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "minimum hours", "max hours", "overtime eligibility"])
+    employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
     #^^ use above function to create employees that we can put into the scheduler
     
     sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
