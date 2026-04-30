@@ -6,6 +6,10 @@ from main import Employee
 AWeek = WorkWeek(2,("morning","night"),6)
 #print(AWeek.Peep()) #debugging
 
+"""
+Test Employee: Amanda
+"""
+
 Worker_Amanda = Employee("Amanda",15,5,True)
 
 def test_WorkWeekArrays():
@@ -18,3 +22,26 @@ def test_EmployeeCreation():
 
 def test_EmployeeOvertime():
   assert Worker_Amanda.EmployeeOvertime(5) == 75
+
+
+"""
+2nd test employee: Pete
+"""
+
+Worker_Pete = Employee("Pete", 20, 4, True)
+
+def test_EmployeeCreation():
+  assert Worker_Pete.name = "Pete"
+  assert Worker_Pete.rate = 20
+  assert Worker_Pete.shifts = 4
+
+def test_EmployeeOvertime():
+  assert Worker_Pete.EmployeeOvertime()
+
+"""
+3rd Test Employee: Ronny
+"""
+
+Worker_Ronny = Employee("Ronny", 14, 4, True)
+
+
