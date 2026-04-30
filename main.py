@@ -143,11 +143,19 @@ class WorkWeek:
         #shift will be a tuple with the hours shifts = (morning,afternoon,night) or like shifts = (morning, night)        
         #each slot = day of the week to work.
         pass
-
+    """
+    
+    """
     def EmployeeOvertime(self, hourly_rate, hours_worked):
         #sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
         pass
-    
+        
+    """
+    An info()-esque function detailing the properties and attributes of a given WorkWeek.
+
+    Returns:
+    - An f-string statement detailing a given WorkWeek
+    """
     def Peep(self):
         return f"WorkWeek: {self.week, self.days, self.shifts, self.workers}"
 
