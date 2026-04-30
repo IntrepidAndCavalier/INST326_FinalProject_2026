@@ -52,14 +52,33 @@ class Employee:
         self.overtime_eligibility = overtime_eligibility
              
         pass
-    
+    """
+    Calculates and designates a given Employee's pay.
+
+    Params:
+    - name (string)
+    - hourly_rate (float)
+    - shifts (int)
+    - overtime_eligibility (bool)
+
+    Returns:
+    - compensation (float)
+    """
     def PayEmployee(self, name, hourly_rate, shifts, overtime_eligibility):
         #assuming each "shift" is 8 hours.
         self.compensation = self.hourly_rate * self.hours_scheduled
         #employee object's compensation = hourly * hours scheduled
         return self.compensation
                
+    """
+    Calculates and designates a given Employee's overtime pay.
 
+    Params:
+    - hours_worked (int)
+
+    Returns:
+    - overtime, which is hours_worked times the hourly_rate Employee attribute
+    """
     def EmployeeOvertime(self, hours_worked):
         #takes hours worked (passed in), uses self.hourly_rate to calculate pay
         return hours_worked * self.hourly_rate
