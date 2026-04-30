@@ -176,7 +176,10 @@ class Scheduler: ##algorithm
     def algorithm(self):
         pass
 
+"""
+An object designed to assign a team of Employees to a given WorkWeek. See more four lines down:
 
+"""
 def Schedule(team,workweek):
     """the schedule algorithm to assign workers to a workweek
     Arguments:
