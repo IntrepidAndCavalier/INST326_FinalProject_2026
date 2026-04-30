@@ -52,6 +52,7 @@ class Employee:
         self.overtime_eligibility = overtime_eligibility
              
         pass
+        
     """
     Calculates and designates a given Employee's pay.
 
@@ -95,10 +96,23 @@ class Employee:
             return True
         else:
             return False
-                    
+    """
+    Copies an Employee object for future usage.
+
+    Returns:
+    The passed Employee object.
+    
+    """                    
     def copy(self):
         return Employee(self.name, self.hourly_rate, self.shifts, self.overtime_eligibility)
-        
+    """
+    The following functions: name(), shifts(), and rate() are designated as helper
+    functions for debugging with the Employee class. 
+
+    Returns:
+    The Employee object's attribute that corresponds with the function name.
+    
+    """    
     #for debugging    
     def name(self):
         return self.name
