@@ -31,9 +31,9 @@ def test_EmployeeOvertime():
 Worker_Pete = Employee("Pete", 20, 4, True)
 
 def test_EmployeeCreation():
-  assert Worker_Pete.name = "Pete"
-  assert Worker_Pete.rate = 20
-  assert Worker_Pete.shifts = 4
+  assert Worker_Pete.name == "Pete"
+  assert Worker_Pete.rate == 20
+  assert Worker_Pete.shifts == 4
 
 def test_EmployeeOvertime():
   assert Worker_Pete.EmployeeOvertime(4) == 80
@@ -45,9 +45,9 @@ def test_EmployeeOvertime():
 Worker_Ronny = Employee("Ronny", 14, 4, True)
 
 def test_EmployeeCreation():
-  assert Worker_Ronny.name = "Ronny"
-  assert Worker_Ronny.rate = 14
-  assert Worker_Ronny.shifts = 4
+  assert Worker_Ronny.name == "Ronny"
+  assert Worker_Ronny.rate == 14
+  assert Worker_Ronny.shifts == 4
 
 def test_EmployeeOvertime():
   assert Worker_Ronny.EmployeeOvertime(6) == 84
