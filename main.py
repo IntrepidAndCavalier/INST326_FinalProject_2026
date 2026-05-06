@@ -149,7 +149,7 @@ class WorkWeek:
     """An object that is used to organize employee schedules
         Days, morning/afternoon/night (what shifts), people needed each day
     """
-    def __init__(self,days,shifts,workers): #WorkWeek(5,(morning,night),5) -> 5 days to fill for morning shift and night shift, 5 people each day
+    def __init__(self, days, shifts, workers): #WorkWeek(5,(morning,night),5) -> 5 days to fill for morning shift and night shift, 5 people each day
         self.week = []
         self.days = days #int, days of the week with shifts to schedule
         self.shifts = shifts #tuple, shifts (morning, afternoon, night).
@@ -157,13 +157,19 @@ class WorkWeek:
        
         #if do WorkWeek(4,(morning,night),5) then  object should look like
         # [(5,5),(5,5),(5,5),(5,5)] 
-        for i in range(0,days):
-            for i in range(0,len(shifts)):
+        for i in range(0, days):
+            for i in range(0, len(shifts)):
                 self.week.append(int(workers)) #worried about mutability here.
             
         #shift will be a tuple with the hours shifts = (morning,afternoon,night) or like shifts = (morning, night)        
         #each slot = day of the week to work.
         pass
+        
+    def __str__(self):
+        """
+        returns formatted string of all attributes of WorkWeek object for debugging purposes
+        """
+        return f"Workweek: {self.week}, {self.days}, {self.shifts}, {self.workers}"
     """
     
     """
@@ -219,8 +225,19 @@ def Schedule(team,workweek):
                 
 
 if __name__ == "__main__":
-    employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
+    #employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
     #^^ use above function to create employees that we can put into the scheduler
     
-    sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
+    #sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
     #^^ use above function to create workweek that we can put into the scheduler
+
+    #below code meant to print employees and workweek lists to verify functionality, will be changed/removed after scheduling algorithm is made
+    employees = read_employees("employees.csv")
+    print(f"Loaded {len(employees)} employees: ")
+    for employee in employees:
+        print(f"{employee.name} | rate: ${employee.rate}/her | shifts: {employee.shifts} | overtime: {employee.overtime_eligibility}")
+
+    workweeks = read_workweek("workweek.csv")
+    print(f"\nLoaded {len(workweeks)} workweek structures: ")
+    for workweek in workweeks:
+        print(f"{workweek.__str__()}")
