@@ -1,22 +1,23 @@
 ﻿name,hourly rate,shifts,overtime eligibility
-Elizabeth,$30 ,4,true
-Alexis,$45 ,6,true
-Jordan,$16 , 5, false
-Bob, $32 , 4, true
-Sam, $22 , 6, true
-Aaliyah, $40 , 4, true
-Kim, $20 , 5, false
-Elijah, $25 , 6, true
-Felix, $19 , 5, true
-Thomas, $30 , 3, false
-Brenda, $35 , 5, true
-Cinda, $35 , 5, true
-Linda, $35 , 5, true
-Carl, $21 , 4, true
-Zuri, $37 , 3, true
-Lexi, $40 , 6, true
-Patricia, $20 , 5, true
-Ricky, $17 , 5, true
-Immanuel, $22 , 3, true
-Wilbur, $12 , 6, true
-Victor, $28 , 5, true
+Elizabeth,30,4,true
+Alexis,45,6,true
+Jordan,16,5,false
+Aish,22,4,true
+Bob,32,4,true
+Sam,22,6,true
+Aaliyah,40,4,true
+Kim,20,5,false
+Elijah,25,6,true
+Felix,19,5,true
+Thomas,30,3,false
+Brenda,35,5,true
+Cinda,35,5,true
+Linda,35,5,true
+Carl,21,4,true
+Zuri,37,3,true
+Lexi,40,6,true
+Patricia,20,5,true
+Ricky,17,5,true
+Immanuel,22,3,true
+Wilbur,12,6,true
+Victor,28,5,true
