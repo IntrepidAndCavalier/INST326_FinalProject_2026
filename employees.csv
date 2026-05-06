@@ -1,4 +1,4 @@
-﻿name,hourly rate,shifts,overtime eligibility
+﻿name,hourly_rate,shifts,overtime_eligibility
 Elizabeth,30,4,true
 Alexis,45,6,true
 Jordan,16,5,false
