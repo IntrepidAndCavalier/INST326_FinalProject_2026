@@ -65,8 +65,9 @@ class Employee:
     Returns:
     - compensation (float)
     """
-    def PayEmployee(self, name, hourly_rate, shifts, overtime_eligibility):
+    def PayEmployee(self, hours_scheduled):
         #assuming each "shift" is 8 hours.
+        self.hours_scheduled = hours_scheduled
         self.compensation = self.hourly_rate * self.hours_scheduled
         #employee object's compensation = hourly * hours scheduled
         return self.compensation
@@ -92,7 +93,7 @@ class Employee:
         If no available shifts, returns false.
         """
         if self.shifts > 0:
-            self.shifts -= -1 #remove one of their shifts
+            self.shifts -= 1 #remove one of their shifts
             return True
         else:
             return False
@@ -122,7 +123,27 @@ class Employee:
     
     def rate(self):
         return self.hourly_rate
-    
+
+def get_employees(file):
+    df = pd.read_csv(file)
+    employees = []
+    for i, row in df.iterrows():
+        name = row["name"]
+        hourly_rate = int(row["hourly_rate"])
+        shifts = int(row["shifts"])
+        overtime = str(row["overtime_eligibility"]).lower() == "true"
+        employees.append(Employee(name, hourly_rate, shifts, overtime))
+    return employees
+
+def get_workweek(file):
+    df = pd.read_csv(file)
+    workweeks = []
+    for i, row in df.iterrows():
+        days = int(row["days"])
+        shifts = tuple(shift.strip() for shift in row["shifts"].split(","))
+        workers = int(row["workers"])
+        workweeks.append(WorkWeek(days, shifts, workers))
+    return workweeks
 
 class WorkWeek:
     """An object that is used to organize employee schedules
