@@ -124,6 +124,10 @@ class Employee:
     def rate(self):
         return self.hourly_rate
 
+"""
+Return all employee entries from a given .csv file parameter. 
+
+"""
 def get_employees(file):
     df = pd.read_csv(file)
     employees = []
@@ -134,7 +138,11 @@ def get_employees(file):
         overtime = str(row["overtime_eligibility"]).lower() == "true"
         employees.append(Employee(name, hourly_rate, shifts, overtime))
     return employees
+    
+"""
+Return all workweek entries from a given .csv file parameter. 
 
+"""
 def get_workweek(file):
     df = pd.read_csv(file)
     workweeks = []
