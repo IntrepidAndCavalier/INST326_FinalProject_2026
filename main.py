@@ -222,7 +222,8 @@ def Schedule(workers,workweek):
                 shift_dict[employee.name] = 0
                 if employee.shifts > 0:
                     available.append(employee)
-                    
+                    employee.shifts -= 1 #takes one shift away (makes it not available for use)
+                    shift_dict[employee.name] += 1 #how many shifts are taken by the employee
             if not available: #check if "available" exists
                 raise ValueError("Ran out of workers while scheduling") # not enough workers!
             
