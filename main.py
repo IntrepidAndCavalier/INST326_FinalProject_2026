@@ -106,23 +106,13 @@ class Employee:
     """                    
     def copy(self):
         return Employee(self.name, self.hourly_rate, self.shifts, self.overtime_eligibility)
-    """
-    The following functions: name(), shifts(), and rate() are designated as helper
-    functions for debugging with the Employee class. 
 
-    Returns:
-    The Employee object's attribute that corresponds with the function name.
-    
-    """    
-    #for debugging    
-    def name(self):
-        return self.name
-    
-    def shifts(self):
-        return self.shifts
-    
-    def rate(self):
-        return self.hourly_rate
+    #for debugging
+    def __repr__(self):
+        return (f"{self.name},{self.shifts},{self.hourly_rate}")
+        
+    def __str__(self):
+        return (f"{self.name}")
 
 """
 Return all employee entries from a given .csv file parameter. 
@@ -191,30 +181,10 @@ class WorkWeek:
     Returns:
     - An f-string statement detailing a given WorkWeek
     """
-    def Peep(self):
+    def __repr__(self):
         return f"WorkWeek: {self.week, self.days, self.shifts, self.workers}"
 
-class Scheduler: ##algorithm
-    """the main thing here
-    Approach: a greedy algorithm to pick “the best employee for this time slot”
-        
-    Rules: 
-    • Match employees to shift based on their availability (first priority)
-    • Don't violate labor laws (how many hours)
-    • Respect minimum/maximum hour restrictions per-employee basis
-    • Avoid scheduling conflicts (don't put too many/few people on shift, but also literally don't put people who hate each other on the same shift)
-    
-    """
-    def __init__(self):
-        pass
-    
-    def algorithm(self):
-        pass
 
-"""
-An object designed to assign a team of Employees to a given WorkWeek. See more four lines down:
-
-"""
 def Schedule(team,workweek):
     """the schedule algorithm to assign workers to a workweek
     Arguments:
@@ -231,6 +201,14 @@ def Schedule(team,workweek):
                 wc.assign()
                 #decrement the worker total in the shift of workweek's week list []
                 
+
+def feasibility(team,workweek): #helper function for Scheduler
+        """Literally just for debugging within here"""
+        req = sum(workweek.week)
+        possible = sum(employee.shifts for employee in team)
+        
+        if possible < req:
+            raise ValueError(f"Not enough to fill schedule: need: {req} have: {possible} deficit: {req - possible}. Add more workers or increase shift)")
 
 if __name__ == "__main__":
     #employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
