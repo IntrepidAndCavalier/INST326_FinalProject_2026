@@ -113,6 +113,11 @@ class Employee:
         
     def __str__(self):
         return (f"{self.name}")
+    
+    def __lt__(self, other):
+        if not isinstance(other, Employee):
+            return NotImplemented 
+        return self.shifts > other.shifts
 
 """
 Return all employee entries from a given .csv file parameter. 
