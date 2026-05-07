@@ -214,10 +214,12 @@ def Schedule(workers,workweek):
             template_week.append("_")
      
     if feasibility(workers,workweek):
+        shift_dict = {}
         #iterate over each slot made from workweek into template_week
         for _ in template_week:            
             available = [] #get employees who have shifts they can do
             for employee in team: #add each employee into the team list that we'll be scheduling
+                shift_dict[employee.name] = 0
                 if employee.shifts > 0:
                     available.append(employee)
                     
