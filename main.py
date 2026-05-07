@@ -114,7 +114,7 @@ class Employee:
     def __str__(self):
         return (f"{self.name}")
     
-    def __lt__(self, other):
+    def __lt__(self, other): #allows for sorting of employee objects by the number of shifts they have
         if not isinstance(other, Employee):
             return NotImplemented 
         return self.shifts > other.shifts
