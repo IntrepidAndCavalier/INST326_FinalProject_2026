@@ -221,14 +221,12 @@ def Schedule(workers,workweek):
     if feasibility(workers,workweek):
         #shift_dict = {}
         #iterate over each slot made from workweek into template_week
-        for _ in template_week:            
+        for _ in template_week:         #literally just used for iterating over and keeps things in place. COULD do sum() but this keeps it so we can do day/night    
             available = [] #get employees who have shifts they can do
             for employee in team: #add each employee into the team list that we'll be scheduling
                 #shift_dict[employee.name] = 0
                 if employee.shifts > 0:
                     available.append(employee)
-                    employee.shifts -= 1 #takes one shift away (makes it not available for use)
-                    team = sorted(team) #
                     #shift_dict[employee.name] += 1 #how many shifts are taken by the employee
             if not available: #check if "available" exists
                 raise ValueError("Ran out of workers while scheduling") # not enough workers!
@@ -238,8 +236,9 @@ def Schedule(workers,workweek):
             #note: default for sort() is ascending. We want descending, hence reverse=true
             worker = available[0] #get worker with most remaining shifts
             
-            worker.assign() #should return true..
-            assignments.append(worker)
+            worker.assign() # don't change shifts by doing employee.shifts -= 1, assign() changes shift number decrements by one. should return true..
+            assignments.append(worker) #add worker to the assignments (final list that returns shifts)
+            
         return assignments 
         """NOTE: Right now the code basically sorts by whoever has the most shifts left to fill, and will add THEM. 
             People will less shifs will not be sorted, so we need to make the algorithm "fair" by probably keeping track
