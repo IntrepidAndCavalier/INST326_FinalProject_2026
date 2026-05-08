@@ -217,35 +217,53 @@ def Schedule(workers,workweek):
     for needed in workweek.week:
         for _ in range(needed): #needed = whatever number of employees was passed into the shift from workweek (ie [5,5,5,5] needed = 5... but replaced with _ in template week
             template_week.append("_")
-     
-    if feasibility(workers,workweek):
-        shift_dict = {}
+    
+    times_assigned = {}
+    for employee in team:
+        assigned_count[employee.name] = 0
+    for _ in template_week:
+        available = []
+        for employee in team:
+            if employee.shifts > 0:
+                available.appends(employee)
+        if not available:
+            raise ValueError("Ran out of workers while scheduling")
+        available.sort(key=lambda employee: (times_assigned[employee.name], -e.shifts))
+
+        worker = available[0]
+        worker.assign()
+        times_assigned[worker.name] +=1
+        assignments.append(worker)
+    return assignments
+    
+    #if feasibility(workers,workweek):
+    #    shift_dict = {}
         #iterate over each slot made from workweek into template_week
-        for _ in template_week:         #literally just used for iterating over and keeps things in place. COULD do sum() but this keeps it so we can do day/night    
-            available = [] #get employees who have shifts they can do
-            for employee in team: #add each employee into the team list that we'll be scheduling
-                shift_dict[employee.name] = 0
-                if employee.shifts > 0:
-                    available.append(employee)
-                    shift_dict[employee.name] += 1 #how many shifts are taken by the employee
-            if not available: #check if "available" exists
-                raise ValueError("Ran out of workers while scheduling") # not enough workers!
+    #    for _ in template_week:         #literally just used for iterating over and keeps things in place. COULD do sum() but this keeps it so we can do day/night    
+    #        available = [] #get employees who have shifts they can do
+    #        for employee in team: #add each employee into the team list that we'll be scheduling
+    #            shift_dict[employee.name] = 0
+    #            if employee.shifts > 0:
+    #                available.append(employee)
+    #                shift_dict[employee.name] += 1 #how many shifts are taken by the employee
+    #        if not available: #check if "available" exists
+    #            raise ValueError("Ran out of workers while scheduling") # not enough workers!
             
-            available.sort(reverse=True) #sort by most shifts first since scheduler calls available[0]
+    #        available.sort(reverse=True) #sort by most shifts first since scheduler calls available[0]
             #note: .sort sorts in place, and changes original list passed in, not a new object
             #note: default for sort() is ascending. We want descending, hence reverse=true
-            worker = available[0] #get worker with most remaining shifts
+    #        worker = available[0] #get worker with most remaining shifts
             
-            worker.assign() # don't change shifts by doing employee.shifts -= 1, assign() changes shift number decrements by one. should return true..
-            assignments.append(worker) #add worker to the assignments (final list that returns shifts)
+    #        worker.assign() # don't change shifts by doing employee.shifts -= 1, assign() changes shift number decrements by one. should return true..
+    #        assignments.append(worker) #add worker to the assignments (final list that returns shifts)
             
-        return assignments 
-        """NOTE: Right now the code basically sorts by whoever has the most shifts left to fill, and will add THEM. 
-            People will less shifs will not be sorted, so we need to make the algorithm "fair" by probably keeping track
-            of how many times an employee is assigned through a variable, and just making sure all employees keep within
-            the same number of times theyre assigned/scheduled
-            ie: if employee.shifts > 0 and [check a count of theyve been added to the current building schedule] otherwise
-            change index of available from [0] to [1] etc."""
+    #    return assignments 
+    #    """NOTE: Right now the code basically sorts by whoever has the most shifts left to fill, and will add THEM. 
+    #        People will less shifs will not be sorted, so we need to make the algorithm "fair" by probably keeping track
+    #        of how many times an employee is assigned through a variable, and just making sure all employees keep within
+    #        the same number of times theyre assigned/scheduled
+    #        ie: if employee.shifts > 0 and [check a count of theyve been added to the current building schedule] otherwise
+    #        change index of available from [0] to [1] etc."""
                 
 
 def feasibility(team,workweek): #helper function for Scheduler
