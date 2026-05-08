@@ -264,12 +264,12 @@ if __name__ == "__main__":
     #^^ use above function to create workweek that we can put into the scheduler
 
     #below code meant to print employees and workweek lists to verify functionality, will be changed/removed after scheduling algorithm is made
-    employees = read_employees("employees.csv")
+    employees = get_employees("employees.csv")
     print(f"Loaded {len(employees)} employees: ")
     for employee in employees:
         print(f"{employee.name} | rate: ${employee.rate}/her | shifts: {employee.shifts} | overtime: {employee.overtime_eligibility}")
 
-    workweeks = read_workweek("workweek.csv")
+    workweeks = get_workweek("workweek.csv")
     print(f"\nLoaded {len(workweeks)} workweek structures: ")
     for workweek in workweeks:
         print(f"{workweek.__str__()}")
