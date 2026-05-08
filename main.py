@@ -219,15 +219,15 @@ def Schedule(workers,workweek):
             template_week.append("_")
      
     if feasibility(workers,workweek):
-        #shift_dict = {}
+        shift_dict = {}
         #iterate over each slot made from workweek into template_week
         for _ in template_week:         #literally just used for iterating over and keeps things in place. COULD do sum() but this keeps it so we can do day/night    
             available = [] #get employees who have shifts they can do
             for employee in team: #add each employee into the team list that we'll be scheduling
-                #shift_dict[employee.name] = 0
+                shift_dict[employee.name] = 0
                 if employee.shifts > 0:
                     available.append(employee)
-                    #shift_dict[employee.name] += 1 #how many shifts are taken by the employee
+                    shift_dict[employee.name] += 1 #how many shifts are taken by the employee
             if not available: #check if "available" exists
                 raise ValueError("Ran out of workers while scheduling") # not enough workers!
             
