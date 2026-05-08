@@ -73,7 +73,7 @@ Test get_employees
 """
 def test_get_employees_count():
   employees = get_employees("employees.csv")
-  assert len(employees) == 21
+  assert len(employees) == 22
 
 def test_get_employees_first_row():
   employees = get_employees("employees.csv")
