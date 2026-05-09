@@ -275,6 +275,20 @@ def feasibility(team,workweek): #helper function for Scheduler
             raise ValueError(f"Not enough to fill schedule: need: {req} have: {possible} deficit: {req - possible}. Add more workers or increase shift)")
 
 if __name__ == "__main__":
+    employees = get_employees("employees.csv")
+    workweeks = get_workweek("workweek.csv")
+    workweek_number = int(input("\nEnter the number of the workweek to schedule: ")) -1
+    workweek = workweeks[workweek_number]
+    week_assignments = Schedule(employees,workweek)
+    slot = 0
+    for day in range(workweek.days):
+        for shift in workweek.shifts:
+            names = []
+            for _ in range(workweek.workers):
+                names.append(assignments[slot].name)
+                slot +=1
+            print(f"Day {day+1} - {shift}: {', '.join(names)}")
+            
     #employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
     #^^ use above function to create employees that we can put into the scheduler
     
@@ -282,12 +296,12 @@ if __name__ == "__main__":
     #^^ use above function to create workweek that we can put into the scheduler
 
     #below code meant to print employees and workweek lists to verify functionality, will be changed/removed after scheduling algorithm is made
-    employees = get_employees("employees.csv")
-    print(f"Loaded {len(employees)} employees: ")
-    for employee in employees:
-        print(f"{employee.name} | rate: ${employee.rate}/her | shifts: {employee.shifts} | overtime: {employee.overtime_eligibility}")
+    #employees = get_employees("employees.csv")
+    #print(f"Loaded {len(employees)} employees: ")
+    #for employee in employees:
+    #    print(f"{employee.name} | rate: ${employee.rate}/her | shifts: {employee.shifts} | overtime: {employee.overtime_eligibility}")
 
-    workweeks = get_workweek("workweek.csv")
-    print(f"\nLoaded {len(workweeks)} workweek structures: ")
-    for workweek in workweeks:
-        print(f"{workweek.__str__()}")
+    #workweeks = get_workweek("workweek.csv")
+    #print(f"\nLoaded {len(workweeks)} workweek structures: ")
+    #for workweek in workweeks:
+    #    print(f"{workweek.__str__()}")
