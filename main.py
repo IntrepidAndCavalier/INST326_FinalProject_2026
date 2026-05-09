@@ -220,7 +220,7 @@ def Schedule(workers,workweek):
     
     times_assigned = {}
     for employee in team:
-        assigned_count[employee.name] = 0
+        times_assigned[employee.name] = 0
     for _ in template_week:
         available = []
         for employee in team:
@@ -228,7 +228,7 @@ def Schedule(workers,workweek):
                 available.appends(employee)
         if not available:
             raise ValueError("Ran out of workers while scheduling")
-        available.sort(key=lambda employee: (times_assigned[employee.name], -e.shifts))
+        available.sort(key=lambda employee: (times_assigned[employee.name], -employee.shifts))
 
         worker = available[0]
         worker.assign()
