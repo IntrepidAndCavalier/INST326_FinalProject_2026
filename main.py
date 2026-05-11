@@ -189,7 +189,7 @@ def Schedule(workers,workweek):
     feasibility(workers,workweek) #could throw value error if failed
     
     #STARTER VARIABLES
-    shift_dict = {}
+    shift_dict = {} #shift dictionary thats going to track employees and how many shifts they have
     assignments =[] #empty assignment/"schedule" structure. Will be the final return object.
 
     #making a copy of each employee so original data will not be affected (maintain mutability)
