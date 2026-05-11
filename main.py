@@ -61,8 +61,9 @@ class Employee:
             return True
         else:
             return False
+            
     """
-    Copies an Employee object for future usage.
+    Copies an Employee object for future usage (helper method).
 
     Returns:
     The passed Employee object.
@@ -79,6 +80,9 @@ class Employee:
         """      
         return Employee(self.name, self.hourly_rate, self.shifts, self.overtime_eligibility)
 
+    """
+    Assorted custom magic methods (helper method)
+    """
     #for debugging
     def __repr__(self):
         return (f"{self.name},{self.shifts},{self.hourly_rate}")
@@ -143,12 +147,13 @@ class WorkWeek:
         
     def __str__(self):
         """
-        returns formatted string of all attributes of WorkWeek object for debugging purposes
+        Returns a formatted string of all attributes of a WorkWeek object for debugging purposes
         Authors: Alexis Smith, Jordan Williams
         """
         return f"Workweek: {self.week}, {self.days}, {self.shifts}, {self.workers}"
+   
     """
-    
+    Calculates Employee overtime
     """
     def EmployeeOvertime(self, hourly_rate, hours_worked):
         #this function goes unusued?
@@ -229,12 +234,12 @@ def Schedule(workers,workweek):
                 
 
 def feasibility(team,workweek): #helper function for Scheduler
-        """A helper function to use in conjuntion with Schedule function, sums the days of the week and the possible shifts of employees
+        """A helper function to use in conjunction with the Schedule function, sums the days of the week and the possible shifts of employees
         to see if a desired workweek can be created with the given parameters
         
         Arguments: 
         team, a list of employee objects
-        workwee, a workweek class object
+        workweek, a workweek class object
         
         Returns: True if possible, ValueError if false
         
@@ -248,7 +253,7 @@ def feasibility(team,workweek): #helper function for Scheduler
 
 def CalculatePaychecks(assignments):
     """For use after Schedule() is called. Takes assignments and then calls Employee.PayEmployee() to return a dictionary of employee's paychecks
-    given teh workweek they are working from the generated Schedule()
+    given the workweek they are working from the generated Schedule()
     
     returns: 
         Dictionary: {Employee name: paycheck}
