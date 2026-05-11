@@ -7,7 +7,8 @@
 import pandas as pd
 
 class Employee:
-    """The employee class"""
+    """The employee class:
+    takes name, hourly_rate, shifts, overtime_eligibility"""
     def __init__(self,name, hourly_rate, shifts, overtime_eligibility):
         self.name = name
         self.hourly_rate = hourly_rate
@@ -15,9 +16,9 @@ class Employee:
         self.overtime_eligibility = overtime_eligibility
              
         pass
-        
-    """
-    Calculates and designates a given Employee's pay.
+
+    def PayEmployee(self, hours_scheduled):    
+    """Calculates and designates the current Employee's pay.
 
     Params:
     - name (string)
@@ -27,16 +28,17 @@ class Employee:
 
     Returns:
     - compensation (float)
+
+    Authors: Alexis Smith, Jordan Williams
     """
-    def PayEmployee(self, hours_scheduled):
         #assuming each "shift" is 8 hours.
         self.hours_scheduled = hours_scheduled
         self.compensation = self.hourly_rate * self.hours_scheduled
         #employee object's compensation = hourly * hours scheduled
         return self.compensation
-               
-    """
-    Calculates and designates a given Employee's overtime pay.
+
+    def EmployeeOvertime(self, hours_worked):              
+    """Calculates and designates a given Employee's overtime pay.
 
     Params:
     - hours_worked (int)
@@ -44,7 +46,6 @@ class Employee:
     Returns:
     - overtime, which is hours_worked times the hourly_rate Employee attribute
     """
-    def EmployeeOvertime(self, hours_worked):
         #takes hours worked (passed in), uses self.hourly_rate to calculate pay
         return hours_worked * self.hourly_rate
         pass
@@ -68,6 +69,14 @@ class Employee:
     
     """                    
     def copy(self):
+            """
+        Copies an Employee object for future usage.
+
+        Returns:
+        The passed Employee object.
+
+        Authors: Alexis Smith, Jordan Williams
+        """      
         return Employee(self.name, self.hourly_rate, self.shifts, self.overtime_eligibility)
 
     #for debugging
@@ -85,6 +94,7 @@ class Employee:
 """
 Return all employee entries from a given .csv file parameter. 
 
+Authors: Alexis Smith, Aishwarya Thalla
 """
 def get_employees(file):
     df = pd.read_csv(file)
@@ -99,7 +109,7 @@ def get_employees(file):
     
 """
 Return all workweek entries from a given .csv file parameter. 
-
+Authors: Alexis Smith, Aishwarya Thalla
 """
 def get_workweek(file):
     df = pd.read_csv(file)
@@ -134,12 +144,14 @@ class WorkWeek:
     def __str__(self):
         """
         returns formatted string of all attributes of WorkWeek object for debugging purposes
+        Authors: Alexis Smith, Jordan Williams
         """
         return f"Workweek: {self.week}, {self.days}, {self.shifts}, {self.workers}"
     """
     
     """
     def EmployeeOvertime(self, hourly_rate, hours_worked):
+        #this function goes unusued?
         #sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
         pass
         
@@ -239,7 +251,9 @@ def CalculatePaychecks(assignments):
     given teh workweek they are working from the generated Schedule()
     
     returns: 
-        Dictionary: {Employee name: paycheck}"""
+        Dictionary: {Employee name: paycheck}
+        
+    Authors: Alexis Smith, Elizabeth Metzler"""
     shift_count = {}
     
     #count assigned shifts:
