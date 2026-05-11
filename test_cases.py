@@ -79,6 +79,8 @@ def test_AlanaCreation():
   assert Worker_Alana.hourly_rate == 25
   assert Worker_Alana.shifts == 5
 
+def test_AlanaOvertime():
+  assert Worker_Alana.EmployeeOvertime(5) == 125
 
 """
 Test get_employees
