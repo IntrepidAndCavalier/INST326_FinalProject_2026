@@ -203,7 +203,7 @@ def Schedule(workers,workweek):
             template_week.append("_")
         
     for employee in team:
-        shift_dict[employee.name] = 0
+        shift_dict[employee.name] = 0 #adds employee name into the shift dictionary as a key and starts their shift count at 0
             
     for _ in template_week:
         available = []
