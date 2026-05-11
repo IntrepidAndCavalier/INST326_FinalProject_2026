@@ -241,11 +241,12 @@ if __name__ == "__main__":
     workweek = workweeks[workweek_number]
     week_assignments = Schedule(employees,workweek)
     slot = 0
+    
     for day in range(workweek.days):
         for shift in workweek.shifts:
             names = []
             for _ in range(workweek.workers):
-                names.append(assignments[slot].name)
+                names.append(week_assignments[slot].name)
                 slot +=1
             print(f"Day {day+1} - {shift}: {', '.join(names)}")
             
