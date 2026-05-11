@@ -267,7 +267,17 @@ def Schedule(workers,workweek):
                 
 
 def feasibility(team,workweek): #helper function for Scheduler
-        """Literally just for debugging within here"""
+        """A helper function to use in conjuntion with Schedule function, sums the days of the week and the possible shifts of employees
+        to see if a desired workweek can be created with the given parameters
+        
+        Arguments: 
+        team, a list of employee objects
+        workwee, a workweek class object
+        
+        Returns: True if possible, ValueError if false
+        
+        Authors: Elizabeth Metzler & Aishwarya Thalla"""
+    
         req = sum(workweek.week)
         possible = sum(employee.shifts for employee in team)
         
