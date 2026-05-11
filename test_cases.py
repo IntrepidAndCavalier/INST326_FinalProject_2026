@@ -52,7 +52,7 @@ def test_RonnyCreation():
   assert Worker_Ronny.shifts == 4
 
 def test_RonnyOvertime():
-  assert Worker_Ronny.EmployeeOvertime(6) == 84
+  assert Worker_Ronny.EmployeeOvertime(4) == 56
 
 """
 4th Test Employee: Gerald
