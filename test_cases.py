@@ -69,6 +69,14 @@ def test_GeraldOvertime():
   assert Worker_Gerald.EmployeeOvertime(3) == 30
 
 """
+5th Test Employee: Alana
+"""
+
+Worker_Alana = Employee("Alana", 25, 5, True)
+
+
+
+"""
 Test get_employees
 """
 def test_get_employees_count():
