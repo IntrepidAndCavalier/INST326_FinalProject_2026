@@ -6,43 +6,6 @@
 ## ^^ the document with the stuff
 import pandas as pd
 
-"""
-TO DO LIST:
-
-> A job has employees (employee objects) that have employee name (string), hourly wage, min hours, max hours, overtime eligibility (boolean), is_available (boolean, for the staffing algorithm)
-    >can add/override each thing, dont need to instantiate with this?
-    
-> create "workweek" object (Days, morning/afternoon/night (what shifts), people needed each day) ASSUMES that each day has same hours/needed employees
-    >template? empty? just basically a "hey i need this"
-    >shifts have times that can be returned i guess idk where this goes
-
-> Algorithm//  add employees to a "workweek" object, return a filled out "schedule" object (is a workweek?) based on employee stats & needed work for the job.
-    >this is done by the scheduler algorithm.
-    >assumes one person by shift
-    
-    > return Day 1: Abby/Morning, Dave/Morning, Carol/Afternoon, Sarah/Night || Day 2: Carol/Morning, 
-    
-
-
-Data -> i/o csv => the thing that reads. (Exercise 2 - Finder as a base?)
-
-Initial docstrings and unit tests
-
-Employee Class
-
-Employee Preferences (in class? out? subclass?)
-
-Schedule class (object?)
-
-Scheduling Algorithm
-
-Overtime function (returns hours of overtime worked)
-
-Employee Pay function (counting overtime)
-
-Testing/Fixing
-"""
-
 class Employee:
     """The employee class"""
     def __init__(self,name, hourly_rate, shifts, overtime_eligibility):
