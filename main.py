@@ -234,6 +234,27 @@ def feasibility(team,workweek): #helper function for Scheduler
         if possible < req:
             raise ValueError(f"Not enough to fill schedule: need: {req} have: {possible} deficit: {req - possible}. Add more workers or increase shift)")
 
+def CalculatePaychecks(assignments):
+    """For use after Schedule() is called. Takes assignments and then calls Employee.PayEmployee() to return a dictionary of employee's paychecks
+    given teh workweek they are working from the generated Schedule()
+    
+    returns: 
+        Dictionary: {Employee name: paycheck}"""
+    shift_count = {}
+    
+    #count assigned shifts:
+    for employee in assignments:
+        shift_count[employee.name] = shift_count.get(employee.name, 0) + 1 #accumulator count
+    paychecks = {}
+    
+    for employee in assignments:
+        if employee.name not in paychecks:
+            hours = shift_count[employee.name] * 8 
+            #Multiplying by 8 because we assume each shift is 8 hours of working, and
+            #Employee.PayEmployee takes hours, not #'s of shifts.
+            paychecks[employee.name] = employee.PayEmployee(hours)
+    return paychecks
+    
 if __name__ == "__main__":
     employees = get_employees("employees.csv")
     workweeks = get_workweek("workweek.csv")
@@ -249,6 +270,11 @@ if __name__ == "__main__":
                 names.append(week_assignments[slot].name)
                 slot +=1
             print(f"Day {day+1} - {shift}: {', '.join(names)}")
+    paychecks = CalculatePaychecks(week_assignments)
+    
+    print("\n Paychecks:")
+    for name in paychecks:
+        print(f"{name}:, ${paychecks[name]}")
             
     #employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
     #^^ use above function to create employees that we can put into the scheduler
