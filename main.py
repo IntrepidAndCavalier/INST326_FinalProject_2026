@@ -270,13 +270,19 @@ def CalculatePaychecks(assignments):
     return paychecks
     
 if __name__ == "__main__":
+    """
+    Initializing employees and retrieving them from our .csv files, setting up the workweek, and initializing a Schedule to organize employees. 
+    """
     employees = get_employees("employees.csv")
     workweeks = get_workweek("workweek.csv")
     workweek_number = int(input("\nEnter the number of the workweek to schedule: ")) -1
     workweek = workweeks[workweek_number]
     week_assignments = Schedule(employees,workweek)
     slot = 0
-    
+
+    """
+    Iterates through a given WorkWeek and lists corresponding employee paychecks 
+    """
     for day in range(workweek.days):
         for shift in workweek.shifts:
             names = []
@@ -285,7 +291,7 @@ if __name__ == "__main__":
                 slot +=1
             print(f"Day {day+1} - {shift}: {', '.join(names)}")
     paychecks = CalculatePaychecks(week_assignments)
-    
+
     print("\n Paychecks:")
     for name in paychecks:
         print(f"{name}:, ${paychecks[name]}")
