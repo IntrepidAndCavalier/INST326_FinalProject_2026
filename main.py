@@ -268,7 +268,10 @@ def CalculatePaychecks(assignments):
             #Employee.PayEmployee takes hours, not #'s of shifts.
             paychecks[employee.name] = employee.PayEmployee(hours)
     return paychecks
-    
+
+"""
+Running our final Schedule algorithm within an if __name__ == "__main__" block. 
+"""
 if __name__ == "__main__":
     """
     Initializing employees and retrieving them from our .csv files, setting up the workweek, and initializing a Schedule to organize employees. 
