@@ -18,19 +18,19 @@ class Employee:
         pass
 
     def PayEmployee(self, hours_scheduled=0):    
-    """Calculates and designates the current Employee's pay.
-
-    Params:
-    - name (string)
-    - hourly_rate (float)
-    - shifts (int)
-    - overtime_eligibility (bool)
-
-    Returns:
-    - compensation (float)
-
-    Authors: Alexis Smith, Jordan Williams
-    """
+        """Calculates and designates the current Employee's pay.
+    
+        Params:
+        - name (string)
+        - hourly_rate (float)
+        - shifts (int)
+        - overtime_eligibility (bool)
+    
+        Returns:
+        - compensation (float)
+    
+        Authors: Alexis Smith, Jordan Williams
+        """
         #assuming each "shift" is 8 hours.
         self.hours_scheduled = hours_scheduled
         self.compensation = self.hourly_rate * self.hours_scheduled
@@ -38,14 +38,14 @@ class Employee:
         return self.compensation
 
     def EmployeeOvertime(self, hours_worked=0):              
-    """Calculates and designates a given Employee's overtime pay.
-
-    Params:
-    - hours_worked (int)
-
-    Returns:
-    - overtime, which is hours_worked times the hourly_rate Employee attribute
-    """
+        """Calculates and designates a given Employee's overtime pay.
+    
+        Params:
+        - hours_worked (int)
+    
+        Returns:
+        - overtime, which is hours_worked times the hourly_rate Employee attribute
+        """
         #takes hours worked (passed in), uses self.hourly_rate to calculate pay
         return hours_worked * self.hourly_rate
         pass
@@ -70,7 +70,7 @@ class Employee:
     
     """                    
     def copy(self):
-            """
+        """
         Copies an Employee object for future usage.
 
         Returns:
@@ -289,7 +289,7 @@ if __name__ == "__main__":
     slot = 0
 
     """
-    Iterates through a given WorkWeek and lists corresponding employee paychecks 
+    Iterates through a given WorkWeek and lists corresponding employee paychecks. 
     """
     for day in range(workweek.days):
         for shift in workweek.shifts:
@@ -302,7 +302,7 @@ if __name__ == "__main__":
 
     print("\n Paychecks:")
     for name in paychecks:
-        print(f"{name}:, ${paychecks[name]}")
+        print(f"{name}: ${paychecks[name]}")
             
     #employees = pd.read_csv("employees.csv", names = ["name", "hourly rate", "shifts", "overtime eligibility"])
     #^^ use above function to create employees that we can put into the scheduler
