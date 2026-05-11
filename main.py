@@ -9,7 +9,7 @@ import pandas as pd
 class Employee:
     """The employee class:
     takes name, hourly_rate, shifts, overtime_eligibility"""
-    def __init__(self,name, hourly_rate, shifts, overtime_eligibility):
+    def __init__(self,name="John Doe", hourly_rate=0, shifts=0, overtime_eligibility=False):
         self.name = name
         self.hourly_rate = hourly_rate
         self.shifts = shifts
@@ -17,7 +17,7 @@ class Employee:
              
         pass
 
-    def PayEmployee(self, hours_scheduled):    
+    def PayEmployee(self, hours_scheduled=0):    
     """Calculates and designates the current Employee's pay.
 
     Params:
@@ -37,7 +37,7 @@ class Employee:
         #employee object's compensation = hourly * hours scheduled
         return self.compensation
 
-    def EmployeeOvertime(self, hours_worked):              
+    def EmployeeOvertime(self, hours_worked=0):              
     """Calculates and designates a given Employee's overtime pay.
 
     Params:
@@ -129,7 +129,7 @@ class WorkWeek:
     """An object that is used to organize employee schedules
         Days, morning/afternoon/night (what shifts), people needed each day
     """
-    def __init__(self, days, shifts, workers): #WorkWeek(5,(morning,night),5) -> 5 days to fill for morning shift and night shift, 5 people each day
+    def __init__(self, days=0, shifts=(), workers=0): #WorkWeek(5,(morning,night),5) -> 5 days to fill for morning shift and night shift, 5 people each day
         self.week = []
         self.days = days #int, days of the week with shifts to schedule
         self.shifts = shifts #tuple, shifts (morning, afternoon, night).
@@ -155,7 +155,7 @@ class WorkWeek:
     """
     Calculates Employee overtime
     """
-    def EmployeeOvertime(self, hourly_rate, hours_worked):
+    def EmployeeOvertime(self, hourly_rate=0, hours_worked=0):
         #this function goes unusued?
         #sw = pd.read_csv("workweek.csv", info = ["days", "shifts", "workers"])
         pass
