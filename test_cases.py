@@ -74,6 +74,10 @@ def test_GeraldOvertime():
 
 Worker_Alana = Employee("Alana", 25, 5, True)
 
+def test_AlanaCreation():
+  assert Worker_Alana.name == "Alana"
+  assert Worker_Alana.hourly_rate == 25
+  assert Worker_Alana.shifts == 5
 
 
 """
